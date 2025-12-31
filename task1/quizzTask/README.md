@@ -1,16 +1,67 @@
-# React + Vite
+LMS Micro-Assessment Quiz System
+Objective
+The objective of this project is to redesign a Learning Management System (LMS) quiz interface into a modern, interactive system. The focus is on "Micro-assessments"—short, frequent quizzes that reinforce learning without overwhelming the student. The system provides immediate post-submission results and detailed correct-answer explanations to facilitate learning.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Key Features
+Focus Mode: A distraction-free UI that removes unnecessary navigation to keep students engaged with the assessment.
 
-Currently, two official plugins are available:
+Dynamic Feedback: Logic that compares user input against a data object to provide instant results upon submission.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Detailed Explanations: Every question includes a post-submission explanation card to clarify why an answer is correct or incorrect.
 
-## React Compiler
+Mobile-First Design: Responsive layout with large, tappable radio buttons and checkboxes for easy use on smartphones and tablets.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Accessibility (A11y): Uses high-contrast colors for "Correct" (Green) and "Incorrect" (Red) states, supplemented by icons (✓/✕) to ensure the interface is distinguishable for color-blind users.
 
-## Expanding the ESLint configuration
+Progress Tracking: A real-time progress bar and question counter to help students manage their time.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🛠 Tech Stack
+Frontend: React (Functional Components, Hooks)
+
+Styling: Tailwind CSS (Utility-first CSS for modern, responsive UI)
+
+Data Handling: Local JSON
+
+State Management: React useState for handling "Live State" (tracking current index, selected answers, and scoring)
+
+📊 Quiz Data Structure
+The project uses a local JSON structure to store quiz content. This approach was chosen to ensure high-quality "Micro-assessment" content, specifically to include the detailed explanations required by the project brief.
+
+Example Schema:
+
+JSON
+
+{
+  "id": 1,
+  "question": "Which hook is used for side effects in React?",
+  "options": ["useState", "useEffect", "useContext", "useReducer"],
+  "correctAnswer": "useEffect",
+  "explanation": "useEffect allows you to perform side effects (fetching data, subscriptions) in functional components."
+}
+📂 Project Structure
+QuizPage.jsx: The main container managing the logic, state, and flow of the quiz.
+
+choice.jsx: A reusable component for the interactive answer options.
+
+explanationCard.jsx: A conditional component that displays immediate feedback and learning explanations.
+
+ResultScreen.jsx: The final dashboard showing the total score and a detailed review of all questions.
+
+quizData.json: A local array of 5 high-quality frontend development questions.
+
+⚙️ Installation & Setup
+Clone the repository:
+
+Bash
+
+git clone [your-github-link-here]
+Install dependencies:
+
+Bash
+
+npm install
+Start the development server:
+
+Bash
+
+npm run dev
